@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التطبيقات - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🤖 تطبيقات الذكاء الاصطناعي</h2>
+                </div>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="aboutus.html">من نحن</a></li>
+                    <li><a href="apps.html" class="active">التطبيقات</a></li>
+                    <li><a href="add_app.html">إضافة تطبيق</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>📱 تطبيقات الذكاء الاصطناعي</h1>
+            <p>اكتشف أفضل التطبيقات الذكية في مختلف المجالات</p>
+        </div>
+
+        <div class="filters">
+            <select id="field-filter">
+                <option value="">جميع المجالات</option>
+                <option value="المساعدة والكتابة">المساعدة والكتابة</option>
+                <option value="التصميم والفن">التصميم والفن</option>
+                <option value="الكتابة والتحرير">الكتابة والتحرير</option>
+                <option value="الاجتماعات والتسجيلات">الاجتماعات والتسجيلات</option>
+                <option value="التطوير والبرمجة">التطوير والبرمجة</option>
+                <option value="التسويق والمحتوى">التسويق والمحتوى</option>
+            </select>
+            
+            <select id="price-filter">
+                <option value="">جميع الخيارات</option>
+                <option value="مجاني">مجاني</option>
+                <option value="مدفوع">مدفوع</option>
+            </select>
+
+            <button id="reset-filters">إعادة التعيين</button>
+        </div>
+        
+        <div class="apps-container" id="apps-container">
+            <!-- سيتم تعبئة التطبيقات هنا بواسطة JavaScript -->
+            <div class="loading">جاري تحميل التطبيقات...</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 جميع الحقوق محفوظة - تطبيقات الذكاء الاصطناعي</p>
+            <p>تم التطوير باستخدام HTML, CSS, JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="myFunctions.js"></script>
+</body>
+</html>

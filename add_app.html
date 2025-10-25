@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة تطبيق - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🤖 تطبيقات الذكاء الاصطناعي</h2>
+                </div>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="aboutus.html">من نحن</a></li>
+                    <li><a href="apps.html">التطبيقات</a></li>
+                    <li><a href="add_app.html" class="active">إضافة تطبيق</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>➕ إضافة تطبيق جديد</h1>
+            <p>أضف تطبيق ذكاء اصطناعي جديد إلى قاعدة البيانات</p>
+        </div>
+        
+        <form id="app-form" class="app-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="app-name">اسم التطبيق *</label>
+                    <input type="text" id="app-name" name="app-name" required 
+                           placeholder="أدخل اسم التطبيق بالإنجليزية فقط">
+                    <span class="error-message" id="app-name-error"></span>
+                    <small>أحرف هجائية إنجليزية فقط بدون فراغات أو رموز</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company-name">اسم الشركة المطورة *</label>
+                    <input type="text" id="company-name" name="company-name" required 
+                           placeholder="أدخل اسم الشركة">
+                    <span class="error-message" id="company-name-error"></span>
+                    <small>أحرف هجائية إنجليزية فقط مع إمكانية استخدام المسافات</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">الموقع الإلكتروني *</label>
+                    <input type="url" id="website" name="website" required 
+                           placeholder="https://example.com">
+                    <span class="error-message" id="website-error"></span>
+                    <small>يجب أن يبدأ الرابط بـ https://</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="logo">شعار التطبيق (اختياري)</label>
+                    <input type="url" id="logo" name="logo" 
+                           placeholder="https://example.com/logo.png">
+                    <small>رابط صورة الشعار - يمكن تركه فارغاً</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>هل التطبيق مجاني؟ *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="is-free" value="نعم" required>
+                            <span class="radio-custom"></span>
+                            نعم
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="is-free" value="نعم (نسخة مجانية)">
+                            <span class="radio-custom"></span>
+                            نعم (نسخة مجانية)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="is-free" value="لا">
+                            <span class="radio-custom"></span>
+                            لا
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="usage-field">مجال الاستخدام *</label>
+                    <select id="usage-field" name="usage-field" required>
+                        <option value="">اختر مجال الاستخدام</option>
+                        <option value="المساعدة والكتابة">المساعدة والكتابة</option>
+                        <option value="التصميم والفن">التصميم والفن</option>
+                        <option value="الكتابة والتحرير">الكتابة والتحرير</option>
+                        <option value="الاجتماعات والتسجيلات">الاجتماعات والتسجيلات</option>
+                        <option value="التطوير والبرمجة">التطوير والبرمجة</option>
+                        <option value="التسويق والمحتوى">التسويق والمحتوى</option>
+                        <option value="الروبوتات">الروبوتات</option>
+                        <option value="التعليم">التعليم</option>
+                        <option value="التجارة الإلكترونية">التجارة الإلكترونية</option>
+                        <option value="الرعاية الصحية">الرعاية الصحية</option>
+                        <option value="التمويل">التمويل</option>
+                        <option value="الترفيه">الترفيه</option>
+                        <option value="Other">أخرى</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="description">شرح مختصر عن التطبيق *</label>
+                <textarea id="description" name="description" rows="5" required 
+                          placeholder="أدخل وصفاً مختصراً للتطبيق وميزاته الرئيسية..."></textarea>
+                <small>اكتب وصفاً شاملاً يشرح فوائد واستخدامات التطبيق</small>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" id="submit-btn" class="btn-primary">
+                    ✅ إرسال التطبيق
+                </button>
+                <button type="reset" id="reset-btn" class="btn-secondary">
+                    🔄 إعادة التعيين
+                </button>
+                <button type="button" id="preview-btn" class="btn-tertiary">
+                    👀 معاينة التطبيق
+                </button>
+            </div>
+        </form>
+
+        <!-- معاينة التطبيق -->
+        <div id="app-preview" class="app-preview hidden">
+            <h3>معاينة التطبيق</h3>
+            <div class="preview-card">
+                <div class="app-header">
+                    <img id="preview-logo" src="https://via.placeholder.com/60" alt="App Logo" class="app-logo">
+                    <div class="app-info">
+                        <h3 id="preview-name">اسم التطبيق</h3>
+                        <p class="company" id="preview-company">الشركة المطورة</p>
+                        <span class="field-badge" id="preview-field">المجال</span>
+                        <span class="price-badge" id="preview-price">السعر</span>
+                    </div>
+                </div>
+                <div class="app-details">
+                    <p><strong>الموقع:</strong> <span id="preview-website">https://example.com</span></p>
+                    <p class="description" id="preview-description">الوصف سيظهر هنا...</p>
+                </div>
+            </div>
+            <button onclick="closePreview()" class="btn-secondary">إغلاق المعاينة</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 جميع الحقوق محفوظة - تطبيقات الذكاء الاصطناعي</p>
+            <p>تم التطوير باستخدام HTML, CSS, JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="myFunctions.js"></script>
+    <script>
+        // معاينة التطبيق
+        document.getElementById('preview-btn').addEventListener('click', function() {
+            updatePreview();
+            document.getElementById('app-preview').classList.remove('hidden');
+        });
+
+        function updatePreview() {
+            document.getElementById('preview-name').textContent = 
+                document.getElementById('app-name').value || 'اسم التطبيق';
+            document.getElementById('preview-company').textContent = 
+                document.getElementById('company-name').value || 'الشركة المطورة';
+            document.getElementById('preview-website').textContent = 
+                document.getElementById('website').value || 'https://example.com';
+            document.getElementById('preview-field').textContent = 
+                document.getElementById('usage-field').value || 'المجال';
+            
+            const isFree = document.querySelector('input[name="is-free"]:checked');
+            document.getElementById('preview-price').textContent = 
+                isFree ? isFree.value : 'السعر';
+            document.getElementById('preview-price').className = 
+                'price-badge ' + (isFree && isFree.value.includes('نعم') ? 'free' : 'paid');
+            
+            document.getElementById('preview-description').textContent = 
+                document.getElementById('description').value || 'الوصف سيظهر هنا...';
+            
+            const logoUrl = document.getElementById('logo').value;
+            document.getElementById('preview-logo').src = 
+                logoUrl || 'https://via.placeholder.com/60';
+        }
+
+        function closePreview() {
+            document.getElementById('app-preview').classList.add('hidden');
+        }
+
+        // تحديث المعاينة عند تغيير الحقول
+        document.querySelectorAll('#app-form input, #app-form select, #app-form textarea').forEach(element => {
+            element.addEventListener('input', updatePreview);
+        });
+    </script>
+</body>
+</html>
